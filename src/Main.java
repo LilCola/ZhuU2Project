@@ -1,17 +1,18 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner scan= new Scanner(System.in);
+        System.out.print("Enter coordinate 1: ");
+        String coordinate1=scan.nextLine();
+        double x1=Integer.parseInt(coordinate1.substring(1,coordinate1.indexOf(",")));
+        double y1=Integer.parseInt(coordinate1.substring(coordinate1.indexOf(" ")+1,coordinate1.length()-1));
+        System.out.print("Enter coordinate 2: ");
+        String coordinate2=scan.nextLine();
+        double x2=Integer.parseInt(coordinate2.substring(1,coordinate2.indexOf(",")));
+        double y2=Integer.parseInt(coordinate2.substring(coordinate2.indexOf(" ")+1,coordinate2.length()-1));
+        System.out.println("The two points are: "+coordinate1+" and "+coordinate2);
+        double slope=(y2-y1)/(x2-x1);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        System.out.println("The equation of the line between these points is: y= "+);
     }
 }
