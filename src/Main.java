@@ -1,5 +1,7 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 public class Main{
+    public static final DecimalFormat df=new DecimalFormat("#.##");
     public static void main(String[] args){
         Scanner scan= new Scanner(System.in);
         System.out.print("Enter coordinate 1: ");
@@ -12,7 +14,15 @@ public class Main{
         double y2=Integer.parseInt(coordinate2.substring(coordinate2.indexOf(" ")+1,coordinate2.length()-1));
         System.out.println("The two points are: "+coordinate1+" and "+coordinate2);
         double slope=(y2-y1)/(x2-x1);
-
-        System.out.println("The equation of the line between these points is: y= "+);
+        double yIntercept=y2-(slope*x2);
+        System.out.println("The equation of the line between these points is: y= "+slope+"x"+"+"+yIntercept);
+        System.out.println("The slope of the line is: "+slope);
+        System.out.println("The y-intercept of the line is: "+yIntercept);
+        double distance=Math.sqrt(Math.pow(y2-y1,2)+Math.pow(x2-x1,2));
+        System.out.println("The distance between the two points is: "+df.format(distance));
+        System.out.println("Enter a value for x: ");
+        double x=scan.nextDouble();
+        double yValueCal=
+        System.out.println("The point on the line is: ");
     }
 }
