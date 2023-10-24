@@ -1,3 +1,4 @@
+import javax.sound.sampled.Line;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 public class Main{
@@ -12,17 +13,21 @@ public class Main{
         String coordinate2=scan.nextLine();
         double x2=Integer.parseInt(coordinate2.substring(1,coordinate2.indexOf(",")));
         double y2=Integer.parseInt(coordinate2.substring(coordinate2.indexOf(" ")+1,coordinate2.length()-1));
-        System.out.println("The two points are: "+coordinate1+" and "+coordinate2);
+        boolean haveRationalSlope=true;
         double slope=(y2-y1)/(x2-x1);
         double yIntercept=y2-(slope*x2);
-        System.out.println("The equation of the line between these points is: y= "+slope+"x"+"+"+yIntercept);
-        System.out.println("The slope of the line is: "+slope);
-        System.out.println("The y-intercept of the line is: "+yIntercept);
-        double distance=Math.sqrt(Math.pow(y2-y1,2)+Math.pow(x2-x1,2));
-        System.out.println("The distance between the two points is: "+df.format(distance));
-        System.out.println("Enter a value for x: ");
-        double x=scan.nextDouble();
-        double yValueCal=
-        System.out.println("The point on the line is: ");
+        if(x1==x2){
+            haveRationalSlope=false;
+        }
+        if(haveRationalSlope){
+            LinearEquation linearEquation1= new LinearEquation(x1,y1,x2,y2);
+            linearEquation1.lineEquation();
+            System.out.print("Enter a value for x: ");
+            double xNewPoint=scan.nextDouble();
+            double yValueCal=slope*xNewPoint+yIntercept;
+            System.out.println("The point on the line is: ("+df.format(xNewPoint)+", "+df.format(yValueCal)+")");
+        }else{
+            System.out.println("These points are on a vertical line: x="+x1);
+        }
     }
 }
