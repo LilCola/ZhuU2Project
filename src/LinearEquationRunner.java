@@ -1,11 +1,10 @@
-import javax.sound.sampled.Line;
-import java.text.DecimalFormat;
-import java.util.Scanner;
-public class Main{
-    public static final DecimalFormat df=new DecimalFormat("#.##");
+import java.text.DecimalFormat;import java.util.Scanner;
+public class LinearEquationRunner {
+
     public static void main(String[] args){
         Scanner scan= new Scanner(System.in);
-        System.out.print("Enter coordinate 1: ");
+        System.out.println("Welcome user.");
+        System.out.print("\nEnter coordinate 1: ");
         String coordinate1=scan.nextLine();
         double x1=Integer.parseInt(coordinate1.substring(1,coordinate1.indexOf(",")));
         double y1=Integer.parseInt(coordinate1.substring(coordinate1.indexOf(" ")+1,coordinate1.length()-1));
@@ -21,11 +20,10 @@ public class Main{
         }
         if(haveRationalSlope){
             LinearEquation linearEquation1= new LinearEquation(x1,y1,x2,y2);
-            linearEquation1.lineEquation();
+            System.out.println(linearEquation1.lineInfo());
             System.out.print("Enter a value for x: ");
             double xNewPoint=scan.nextDouble();
-            double yValueCal=slope*xNewPoint+yIntercept;
-            System.out.println("The point on the line is: ("+df.format(xNewPoint)+", "+df.format(yValueCal)+")");
+            System.out.println("\nThe point on the line is: "+linearEquation1.CoordinateForX(xNewPoint));
         }else{
             System.out.println("These points are on a vertical line: x="+x1);
         }
